@@ -14,7 +14,7 @@ jobs:
     - name: Install dependencies
       run: |
         sudo apt-get update
-        sudo apt-get install -y libboost-program-options-dev
+        sed 's/\r$//' requirements.txt | sed 's/#.*//' | xargs sudo apt-get install -y
 
     - name: Build
       run: |
