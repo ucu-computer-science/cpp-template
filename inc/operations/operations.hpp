@@ -1,8 +1,7 @@
 #ifndef ADDER_OPERATIONS_HPP
 #define ADDER_OPERATIONS_HPP
 
-namespace operations
-{
+namespace operations {
     int add(int, int);
 }
 
