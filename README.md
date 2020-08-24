@@ -6,7 +6,7 @@
 
 ## Prerequisites
 
- - **C++ compiler** - needs to support **C++20** standard
+ - **C++ compiler** - needs to support **C++17** standard
  - **CMake** 3.15+
 
 The rest prerequisites (such as development libraries) can be found in the [requirements file](./requirements.txt)
