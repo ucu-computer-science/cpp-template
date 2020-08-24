@@ -6,7 +6,7 @@ on:
 
 jobs:
   build:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-20.04
 
     steps:
     - uses: actions/checkout@v2
@@ -18,7 +18,5 @@ jobs:
 
     - name: Build
       run: |
-        mkdir build
-        cd build
-        cmake -DCMAKE_BUILD_TYPE=Release -G"Unix Makefiles" ..
-        make
+        mkdir build && cd build
+        cmake -G"Unix Makefiles" .. && make
