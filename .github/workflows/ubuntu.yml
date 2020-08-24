@@ -7,6 +7,9 @@ on:
 jobs:
   build:
     runs-on: ubuntu-20.04
+    strategy:
+      matrix:
+        compiler: [g++, clang++]
 
     steps:
     - uses: actions/checkout@v2
@@ -19,4 +22,4 @@ jobs:
     - name: Build
       run: |
         mkdir build && cd build
-        cmake -G"Unix Makefiles" .. && make
+        cmake -DCMAKE_CXX_COMPILER=${{ matrix.compiler }} -G"Unix Makefiles" .. && make
