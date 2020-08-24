@@ -1,16 +1,17 @@
-# Adder
-> adding two integers never was this easy
+# Lab 2 Option 3: Adder
 
-## Getting started
+## Team
 
-### Prerequisites
+ - [Volodymyr Chernetskyi](https://github.com/chernetskyi)
+
+## Prerequisites
 
  - **C++ compiler** - needs to support **C++20** standard
  - **CMake** 3.15+
 
 The rest prerequisites (such as development libraries) can be found in the [requirements file](./requirements.txt)
 
-### Installing
+## Installing
 
 1. Clone the project.
     ```bash
@@ -23,10 +24,10 @@ The rest prerequisites (such as development libraries) can be found in the [requ
 3. Build.
     ```bash
     mkdir build && cd build
-    cmake -G"Unix Makefiles" -DCMAKE_BUILD_TYPE=Release .. && make
+    cmake -G"Unix Makefiles" .. && make
     ```
 
-### Usage
+## Usage
 
 ```bash
 add [a] [b]
@@ -35,7 +36,3 @@ add [a] [b]
 If less than two numbers provided, zeroes are used instead. If more - an error occurs.
 
 Help flags `-h`/`--help` support is available.
-
-## Team
-
- - [Volodymyr Chernetskyi](https://github.com/chernetskyi)
