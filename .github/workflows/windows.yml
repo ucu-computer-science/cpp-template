@@ -1,0 +1,21 @@
+name: Windows
+
+on:
+  pull_request:
+    branches: [ master ]
+
+jobs:
+  build:
+    runs-on: windows-2019
+
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Install Conan
+        run: pip install conan
+
+      - name: Configure
+        run: cmake -Bbuild
+
+      - name: Build
+        run: cmake --build build
