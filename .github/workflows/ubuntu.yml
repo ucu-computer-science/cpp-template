@@ -9,15 +9,20 @@ jobs:
     runs-on: ubuntu-20.04
     strategy:
       matrix:
-        compiler: [g++-9, g++-8, clang++-9, clang++-8]
+        cpp_compiler: [g++, clang++]
+        include:
+          - cpp_compiler: g++
+            c_compiler: gcc
+          - cpp_compiler: clang++
+            c_compiler: clang
 
     steps:
     - uses: actions/checkout@v2
 
-    - name: Install dependencies
-      run: sed 's/\r$//' requirements.txt | sed 's/#.*//' | xargs sudo apt-get install -y
+    - name: Install Conan
+      run: sudo pip3 install conan
 
     - name: Build
       run: |
         mkdir build && cd build
-        cmake -DCMAKE_CXX_COMPILER=${{ matrix.compiler }} -G"Unix Makefiles" .. && make
+        CC=${{ matrix.c_compiler }} CXX=${{ matrix.cpp_compiler }} cmake -G"Unix Makefiles" .. && cmake --build .
