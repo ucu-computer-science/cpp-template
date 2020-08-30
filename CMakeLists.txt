@@ -21,6 +21,16 @@ else ()
                         $<$<NOT:$<CXX_COMPILER_ID:MSVC>>:-Wall -Wextra -Wpedantic>)
 endif ()
 
+option(SANITIZERS "Use sanitizers to detect errors." OFF)
+if (SANITIZERS)
+    set(CMAKE_MODULE_PATH "${CMAKE_SOURCE_DIR}/cmake/sanitizers" ${CMAKE_MODULE_PATH})
+    set(SANITIZE_MEMORY ON) # incompatible with SANITIZE_ADDRESS: set(SANITIZE_ADDRESS ON)
+    set(SANITIZE_UNDEFINED ON)
+    find_package(Sanitizers)
+
+    add_sanitizers(add)
+endif ()
+
 if (PROJECT_SOURCE_DIR STREQUAL PROJECT_BINARY_DIR)
     message(FATAL_ERROR "In-source builds not allowed. Make a build directory and run CMake from there.\n")
 endif ()
