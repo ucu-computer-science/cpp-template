@@ -22,7 +22,8 @@ jobs:
     - name: Install Conan
       run: sudo pip3 install conan
 
+    - name: Configure
+      run: CC=${{ matrix.c_compiler }} CXX=${{ matrix.cpp_compiler }} cmake -G"Unix Makefiles" -Bbuild
+
     - name: Build
-      run: |
-        mkdir build && cd build
-        CC=${{ matrix.c_compiler }} CXX=${{ matrix.cpp_compiler }} cmake -G"Unix Makefiles" .. && cmake --build .
+      run: cmake --build build
