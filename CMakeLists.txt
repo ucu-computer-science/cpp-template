@@ -28,7 +28,7 @@ if (ENABLE_CONAN)
 endif()
 
 # Add external packages
-find_package(Boost 1.71 COMPONENTS program_options REQUIRED)
+find_package(Boost 1.71.0 COMPONENTS program_options REQUIRED)
 include_directories(${Boost_INCLUDE_DIR})
 target_link_libraries(add Boost::program_options)
 

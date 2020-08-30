@@ -4,6 +4,9 @@ on:
   pull_request:
     branches: [ master ]
 
+env:
+  BOOST_ROOT: "$env:BOOST_ROOT_1_72_0"
+
 jobs:
   build:
     runs-on: windows-2019
