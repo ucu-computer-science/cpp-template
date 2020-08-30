@@ -4,20 +4,23 @@ project(adder CXX)
 set(CMAKE_CXX_STANDARD 17)
 
 # Options
-option(ENABLE_CONAN "Use Conan as a package manager." ON)
+option(ENABLE_CONAN "Use Conan as a package manager." OFF)
 option(WARNINGS_AS_ERRORS "Treat compiler warnings as errors." OFF)
 option(ENABLE_SANITIZERS "Use sanitizers to detect errors." OFF)
-
-# Build release version by default
-if (NOT CMAKE_BUILD_TYPE)
-    set(CMAKE_BUILD_TYPE Release)
-endif ()
 
 # Project source compilation
 include_directories(inc)
 add_library(operations SHARED src/operations.cpp inc/operations/operations.hpp)
 add_executable(add src/main.cpp)
 target_link_libraries(add operations)
+
+# GitHub Action Windows workflow specific settings
+if(DEFINED ENV{BOOST_ROOT_1_72_0})
+    file(TO_CMAKE_PATH $ENV{BOOST_ROOT_1_72_0} CMAKE_BOOST_ROOT)
+    list(APPEND BOOST_ROOT "$ENV{CMAKE_BOOST_ROOT}")
+    list(APPEND BOOST_INCLUDEDIR "$ENV{CMAKE_BOOST_ROOT}/boost/include")
+    list(APPEND BOOST_LIBRARYDIR "$ENV{CMAKE_BOOST_ROOT}/lib")
+endif()
 
 # Conan
 if (ENABLE_CONAN)

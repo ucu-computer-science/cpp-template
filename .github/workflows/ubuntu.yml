@@ -19,8 +19,8 @@ jobs:
     steps:
     - uses: actions/checkout@v2
 
-    - name: Install Conan
-      run: sudo pip3 install conan
+    - name: Install dependencies
+      run: sed 's/\r$//' apt_packages.txt | sed 's/#.*//' | xargs sudo apt-get install -y
 
     - name: Configure
       run: CC=${{ matrix.c_compiler }} CXX=${{ matrix.cpp_compiler }} cmake -G"Unix Makefiles" -Bbuild

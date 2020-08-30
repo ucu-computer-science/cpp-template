@@ -16,6 +16,10 @@
     ```bash
     git clone git@github.com:chernetskyi/cpp-template.git
     ```
+2. Install required libraries. On Ubuntu:
+   ```bash
+   sed 's/\r$//' apt_packages.txt | sed 's/#.*//' | xargs sudo apt-get install -y
+   ```
 3. Build.
     ```bash
     cmake -G"Unix Makefiles" -Bbuild

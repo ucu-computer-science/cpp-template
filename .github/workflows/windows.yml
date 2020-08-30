@@ -4,9 +4,6 @@ on:
   pull_request:
     branches: [ master ]
 
-env:
-  BOOST_ROOT: "$env:BOOST_ROOT_1_72_0"
-
 jobs:
   build:
     runs-on: windows-2019
@@ -18,7 +15,7 @@ jobs:
         run: pip install conan
 
       - name: Configure
-        run: cmake -Bbuild
+        run: cmake -DENABLE_CONAN=ON -Bbuild
 
       - name: Build
         run: cmake --build build
