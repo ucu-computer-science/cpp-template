@@ -9,12 +9,12 @@ jobs:
     runs-on: ubuntu-20.04
     strategy:
       matrix:
-        cpp_compiler: [g++, clang++]
+        cc: [gcc, clang]
         include:
-          - cpp_compiler: g++
-            c_compiler: gcc
-          - cpp_compiler: clang++
-            c_compiler: clang
+          - cc: gcc
+            cxx: g++
+          - cc: clang
+            cxx: clang++
 
     steps:
     - uses: actions/checkout@v2
@@ -26,7 +26,7 @@ jobs:
       run: sed 's/\r$//' apt_packages.txt | sed 's/#.*//' | xargs sudo apt-get install -y
 
     - name: Configure
-      run: CC=${{ matrix.c_compiler }} CXX=${{ matrix.cpp_compiler }} cmake -G"Unix Makefiles" -Bbuild
+      run: CC=${{ matrix.cc }} CXX=${{ matrix.cxx }} cmake -G"Unix Makefiles" -Bbuild
 
     - name: Build
       run: cmake --build build
