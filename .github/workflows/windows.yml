@@ -15,7 +15,7 @@ jobs:
         run: pip install conan
 
       - name: Configure
-        run: cmake -DENABLE_CONAN=ON -Bbuild
+        run: cmake -Bbuild
 
       - name: Build
         run: cmake --build build
