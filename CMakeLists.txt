@@ -14,14 +14,6 @@ add_library(operations SHARED src/operations.cpp inc/operations/operations.hpp)
 add_executable(add src/main.cpp)
 target_link_libraries(add operations)
 
-# GitHub Action Windows workflow specific settings
-if(DEFINED ENV{BOOST_ROOT_1_72_0})
-    file(TO_CMAKE_PATH $ENV{BOOST_ROOT_1_72_0} CMAKE_BOOST_ROOT)
-    list(APPEND BOOST_ROOT "$ENV{CMAKE_BOOST_ROOT}")
-    list(APPEND BOOST_INCLUDEDIR "$ENV{CMAKE_BOOST_ROOT}/boost/include")
-    list(APPEND BOOST_LIBRARYDIR "$ENV{CMAKE_BOOST_ROOT}/lib")
-endif()
-
 # Conan
 if (ENABLE_CONAN)
     include(cmake/conan.cmake)
