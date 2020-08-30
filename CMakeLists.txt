@@ -19,11 +19,6 @@ add_library(operations SHARED src/operations.cpp inc/operations/operations.hpp)
 add_executable(add src/main.cpp)
 target_link_libraries(add operations)
 
-# Add external packages
-find_package(Boost 1.71 COMPONENTS program_options REQUIRED)
-include_directories(${Boost_INCLUDE_DIR})
-target_link_libraries(add Boost::program_options)
-
 # Conan
 if (ENABLE_CONAN)
     include(cmake/conan.cmake)
@@ -31,6 +26,11 @@ if (ENABLE_CONAN)
                     BASIC_SETUP CMAKE_TARGETS
                     BUILD missing)
 endif()
+
+# Add external packages
+find_package(Boost 1.71 COMPONENTS program_options REQUIRED)
+include_directories(${Boost_INCLUDE_DIR})
+target_link_libraries(add Boost::program_options)
 
 # Sanitizers
 if (ENABLE_SANITIZERS)
