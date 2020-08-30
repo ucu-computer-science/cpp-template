@@ -23,6 +23,14 @@ target_link_libraries(add operations)
 find_package(Boost 1.71 COMPONENTS program_options REQUIRED)
 target_link_libraries(add Boost::program_options)
 
+# Conan
+if (ENABLE_CONAN)
+    include(cmake/conan.cmake)
+    conan_cmake_run(CONANFILE conanfile.txt
+                    BASIC_SETUP CMAKE_TARGETS
+                    BUILD missing)
+endif()
+
 # Sanitizers
 if (ENABLE_SANITIZERS)
     set(CMAKE_MODULE_PATH "${CMAKE_SOURCE_DIR}/cmake/sanitizers" ${CMAKE_MODULE_PATH})
