@@ -8,7 +8,8 @@
 
  - **C++ compiler** - needs to support **C++17** standard
  - **CMake** 3.15+
- - **Conan** package manager
+ 
+The rest prerequisites (such as development libraries) can be found in the [packages file](./apt_packages.txt) in the form of the apt package manager package names.
 
 ## Installing
 
