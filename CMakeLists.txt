@@ -4,14 +4,9 @@ project(adder CXX)
 set(CMAKE_CXX_STANDARD 17)
 
 # Options
-option(ENABLE_CONAN "Use Conan as a package manager." ON)
+option(ENABLE_CONAN "Use Conan as a package manager." OFF)
 option(WARNINGS_AS_ERRORS "Treat compiler warnings as errors." OFF)
 option(ENABLE_SANITIZERS "Use sanitizers to detect errors." OFF)
-
-# Build release version by default
-if (NOT CMAKE_BUILD_TYPE)
-    set(CMAKE_BUILD_TYPE Release)
-endif ()
 
 # Project source compilation
 include_directories(inc)
@@ -28,7 +23,7 @@ if (ENABLE_CONAN)
 endif()
 
 # Add external packages
-find_package(Boost 1.71 COMPONENTS program_options REQUIRED)
+find_package(Boost 1.71.0 COMPONENTS program_options REQUIRED)
 include_directories(${Boost_INCLUDE_DIR})
 target_link_libraries(add Boost::program_options)
 
