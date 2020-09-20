@@ -14,7 +14,7 @@ endif ()
 
 
 # Compiler warnings
-set(MSVC_WARNINGS /Wall)
+set(MSVC_WARNINGS /W4)
 set(GCC_CLANG_WARNINGS -Wall -Wextra -Wpedantic)
 
 if (WARNINGS_AS_ERRORS)
