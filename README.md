@@ -17,7 +17,7 @@ The rest prerequisites (such as development libraries) can be found in the [pack
     ```bash
     git clone git@github.com:chernetskyi/cpp-template.git
     ```
-2. Install required libraries. On Ubuntu:
+2. Install required packages. On Ubuntu:
    ```bash
    sed 's/\r$//' apt_packages.txt | sed 's/#.*//' | xargs sudo apt-get install -y
    ```
