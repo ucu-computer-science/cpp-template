@@ -23,7 +23,7 @@ jobs:
       run: sed 's/\r$//' apt_packages.txt | sed 's/#.*//' | xargs sudo apt-get install -y
 
     - name: Configure
-      run: CC=${{ matrix.cc }} CXX=${{ matrix.cxx }} cmake -DENABLE_CONAN=OFF -G"Unix Makefiles" -Bbuild
+      run: CC=${{ matrix.cc }} CXX=${{ matrix.cxx }} cmake -DENABLE_CONAN=OFF -Bbuild
 
     - name: Build
       run: cmake --build build
