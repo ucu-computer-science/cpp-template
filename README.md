@@ -23,7 +23,7 @@ The rest prerequisites (such as development libraries) can be found in the [pack
    ```
 3. Build.
     ```bash
-    cmake -G"Unix Makefiles" -Bbuild
+    cmake -Bbuild
     cmake --build build
     ```
 

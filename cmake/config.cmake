@@ -31,12 +31,29 @@ else ()
 endif ()
 
 
-# Add sanitizers' CMake files to CMake path
-set(CMAKE_MODULE_PATH "${CMAKE_SOURCE_DIR}/cmake/sanitizers" ${CMAKE_MODULE_PATH})
+# Sanitizers configuration
+if (ENABLE_SANITIZERS)
+    set(SANITIZE_UNDEFINED ON)
+
+    # Only one of Memory, Address, or Thread sanitizers is applicable at the time
+    set(SANITIZE_MEMORY ON)
+#    set(SANITIZE_ADDRESS ON)
+#    set(SANITIZE_THREAD ON)
+
+    # Add sanitizers' CMake files to CMake path
+    set(CMAKE_MODULE_PATH "${CMAKE_SOURCE_DIR}/cmake/sanitizers" ${CMAKE_MODULE_PATH})
+
+    find_package(Sanitizers)
+endif ()
+
+
+# Set output directories
+set(CMAKE_ARCHIVE_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/lib)
+set(CMAKE_LIBRARY_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/lib)
+set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/bin)
 
 
 # Forbid in-source builds
 if (PROJECT_SOURCE_DIR STREQUAL PROJECT_BINARY_DIR)
     message(FATAL_ERROR "In-source builds not allowed. Make a build directory and run CMake from there.\n")
 endif ()
-
