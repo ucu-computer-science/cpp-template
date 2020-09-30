@@ -1,7 +1,7 @@
 #include <iostream>
 #include <boost/program_options.hpp>
 
-#include "operations/operations.hpp"
+#include "arithmetic/arithmetic.hpp"
 
 int main(int argc, char **argv) {
     int variable_a, variable_b;
@@ -33,7 +33,7 @@ int main(int argc, char **argv) {
         return EXIT_SUCCESS;
     }
 
-    int result = operations::add(variable_a, variable_b);
+    int result = arithmetic::add(variable_a, variable_b);
     std::cout << result << std::endl;
     return EXIT_SUCCESS;
 }
