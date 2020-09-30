@@ -25,13 +25,6 @@ target_link_libraries(add Boost::program_options)
 
 # Sanitizers configuration
 if (ENABLE_SANITIZERS)
-    set(SANITIZE_UNDEFINED ON)
-    # Only one of Memory, Address, or Thread sanitizers is applicable at the time
-    set(SANITIZE_MEMORY ON)
-#    set(SANITIZE_ADDRESS ON)
-#    set(SANITIZE_THREAD ON)
-    find_package(Sanitizers)
-
     # CMake targets to which apply sanitizers
     add_sanitizers(arithmetic add)
 endif ()
