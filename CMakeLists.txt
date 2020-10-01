@@ -13,8 +13,8 @@ option(WARNINGS_AS_ERRORS   "Treat compiler warnings as errors."    OFF)
 option(ENABLE_SANITIZERS    "Use sanitizers to detect errors."      OFF)
 option(ENABLE_CONAN         "Use Conan as a package manager."       OFF)
 
-# Include fixed CMake configuration
-include(cmake/config.cmake)
+# Include default CMake configuration
+include(cmake/defaults.cmake)
 
 # Project source compilation
 include_directories(inc)
