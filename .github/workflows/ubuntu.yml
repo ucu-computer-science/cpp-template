@@ -7,6 +7,8 @@ on:
 jobs:
   build:
     runs-on: ubuntu-20.04
+    if: "!contains(github.event.head_commit.message, '[skip ci]')"
+
     strategy:
       matrix:
         cc: [gcc, clang]
@@ -20,7 +22,8 @@ jobs:
     - uses: actions/checkout@v2
 
     - name: Install dependencies
-      run: sed 's/\r$//' apt_packages.txt | sed 's/#.*//' | xargs sudo apt-get install -y
+      run: |
+        [[ -r apt_packages.txt ]] && sed 's/\r$//' apt_packages.txt | sed 's/#.*//' | xargs sudo apt-get install -y
 
     - name: Configure
       run: CC=${{ matrix.cc }} CXX=${{ matrix.cxx }} cmake -DENABLE_CONAN=OFF -Bbuild

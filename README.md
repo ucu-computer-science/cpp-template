@@ -19,7 +19,7 @@ The rest prerequisites (such as development libraries) can be found in the [pack
     ```
 2. Install required packages. On Ubuntu:
    ```bash
-   sed 's/\r$//' apt_packages.txt | sed 's/#.*//' | xargs sudo apt-get install -y
+   [[ -r apt_packages.txt ]] && sed 's/\r$//' apt_packages.txt | sed 's/#.*//' | xargs sudo apt-get install -y
    ```
 3. Build.
     ```bash
