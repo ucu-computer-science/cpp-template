@@ -13,7 +13,7 @@ include(cmake/config.cmake)
 
 # Project source compilation
 include_directories(inc)
-add_library(arithmetic STATIC src/arithmetic.cpp inc/arithmetic/arithmetic.hpp)
+add_library(arithmetic STATIC src/arithmetic/arithmetic.cpp inc/arithmetic/arithmetic.hpp)
 add_executable(add src/main.cpp)
 target_link_libraries(add arithmetic)
 
