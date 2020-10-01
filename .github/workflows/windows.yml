@@ -12,10 +12,9 @@ jobs:
       - uses: actions/checkout@v2
 
       - name: Install Conan
-        run: pip install conan
-
-      - name: Add Bincrafters remote for Conan
-        run: conan remote add bincrafters https://api.bintray.com/conan/bincrafters/public-conan
+        run: |
+          pip install conan
+          conan remote add bincrafters https://api.bintray.com/conan/bincrafters/public-conan
 
       - name: Configure
         run: cmake -DBOOST_ROOT="$env:BOOST_ROOT_1_72_0" -DBOOST_INCLUDEDIR="$env:BOOST_ROOT_1_72_0"\boost\include -DBOOST_LIBRARYDIR="$env:BOOST_ROOT_1_72_0"\lib -Bbuild
