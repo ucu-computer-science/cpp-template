@@ -1,5 +1,9 @@
 cmake_minimum_required(VERSION 3.15)
-project(adder CXX)
+project(adder
+        VERSION 1.0.0
+        DESCRIPTION "Add two numbers"
+        HOMEPAGE_URL "https://github.com/chernetskyi/cpp-template"
+        LANGUAGES CXX)
 
 set(CMAKE_CXX_STANDARD 17)
 
