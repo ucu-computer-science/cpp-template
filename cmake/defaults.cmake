@@ -13,6 +13,13 @@ if (ENABLE_CONAN)
 endif ()
 
 
+# PVS-Studio
+if (ENABLE_PVS_STUDIO)
+    set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
+    include(cmake/PVS-Studio.cmake)
+endif ()
+
+
 # Compiler warnings
 set(MSVC_WARNINGS /W4)
 set(GCC_CLANG_WARNINGS -Wall -Wextra -Wpedantic)
