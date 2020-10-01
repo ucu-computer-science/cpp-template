@@ -3,8 +3,9 @@ project(adder
         VERSION 1.0.0
         DESCRIPTION "Add two numbers"
         HOMEPAGE_URL "https://github.com/chernetskyi/cpp-template"
-        LANGUAGES CXX)
+        LANGUAGES C CXX)
 
+set(CMAKE_C_STANDARD 11)
 set(CMAKE_CXX_STANDARD 17)
 
 # Options
