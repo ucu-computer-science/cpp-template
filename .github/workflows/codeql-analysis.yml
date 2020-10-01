@@ -29,7 +29,7 @@ jobs:
         languages: ${{ matrix.language }}
 
     - name: Build
-    - run: |
+      run: |
         sed 's/\r$//' apt_packages.txt | sed 's/#.*//' | xargs sudo apt-get install -y
         cmake -DENABLE_CONAN=OFF -Bbuild
         cmake --build build
