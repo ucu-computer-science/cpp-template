@@ -1,6 +1,12 @@
-# Build release version by default
+# Build release version by default. Do not hardcode it!
 if (NOT CMAKE_BUILD_TYPE)
     set(CMAKE_BUILD_TYPE Release)
+endif ()
+
+
+# Support for dll-s autoexport
+if (MSVC)
+    set(CMAKE_WINDOWS_EXPORT_ALL_SYMBOLS TRUE)
 endif ()
 
 
@@ -17,6 +23,8 @@ endif ()
 if (ENABLE_PVS_STUDIO)
     set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
     include(cmake/PVS-Studio.cmake)
+else ()
+    message("Consider using PVS-Studio with `-DENABLE_PVS_STUDIO=ON` flag or Windows GUI application.")
 endif ()
 
 
