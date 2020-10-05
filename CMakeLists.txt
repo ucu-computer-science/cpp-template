@@ -9,7 +9,7 @@ set(CMAKE_C_STANDARD 11)
 set(CMAKE_CXX_STANDARD 17)
 
 # Options
-option(WARNINGS_AS_ERRORS   "Treat compiler warnings as errors."    OFF)
+option(WARNINGS_AS_ERRORS   "Treat compiler warnings as errors."    ON)
 option(ENABLE_PVS_STUDIO    "Use PVS-Studio static code analyzer."  OFF)
 option(ENABLE_SANITIZERS    "Use sanitizers to detect errors."      OFF)
 option(ENABLE_CONAN         "Use Conan as a package manager."       OFF)
