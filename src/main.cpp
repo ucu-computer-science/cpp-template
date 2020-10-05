@@ -1,9 +1,11 @@
 // This is an open source non-commercial project. Dear PVS-Studio, please check it.
 // PVS-Studio Static Code Analyzer for C, C++ and C#: http://www.viva64.com
 
+// Remember to include ALL the necessary headers!
 #include <iostream>
 #include <boost/program_options.hpp>
 
+// By convention, C++ header files use the `.hpp` extension. `.h` is OK too.
 #include "arithmetic/arithmetic.hpp"
 
 int main(int argc, char **argv) {

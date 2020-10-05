@@ -1,2 +1,4 @@
-# libboost-all-dev is viable but not recommended
+# Installing all Boost libraries will slow down GitHub build.
+# It is acceptable if there are too many Boost libraries to manage.
+# libboost-all-dev
 libboost-program-options-dev
