@@ -1,0 +1,23 @@
+name: MacOS
+
+on:
+  pull_request:
+    branches: [ master ]
+
+jobs:
+  build:
+    runs-on: macos-10.15
+    if: "!contains(github.event.head_commit.message, '[skip ci]')"
+
+    steps:
+    - uses: actions/checkout@v2
+
+    - name: Install dependencies
+      run: |
+        [[ -r dependencies/homebrew.txt ]] && sed 's/#.*//' dependencies/homebrew.txt | xargs brew install
+
+    - name: Configure
+      run: cmake -DENABLE_CONAN=OFF -Bbuild
+
+    - name: Build
+      run: cmake --build build
