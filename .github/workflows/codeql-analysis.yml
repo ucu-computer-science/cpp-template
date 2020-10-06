@@ -21,7 +21,6 @@ jobs:
         fetch-depth: 2
 
     - run: git checkout HEAD^2
-      if: ${{ github.event_name == 'pull_request' }}
 
     - name: Initialize CodeQL
       uses: github/codeql-action/init@v1
@@ -30,7 +29,7 @@ jobs:
 
     - name: Build
       run: |
-        [[ -r apt_packages.txt ]] && sed 's/\r$//' apt_packages.txt | sed 's/#.*//' | xargs sudo apt-get install -y
+        [[ -r dependencies/apt.txt ]] && sed 's/#.*//' dependencies/apt.txt | xargs sudo apt-get install -y
         cmake -DENABLE_CONAN=OFF -Bbuild
         cmake --build build
 
