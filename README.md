@@ -21,7 +21,7 @@ Dependencies (such as development libraries) can be found in the [dependencies f
 
    On Ubuntu:
    ```bash
-   [[ -r dependencies/apt.txt ]] && sed 's/#.*//' dependencies/apt.txt| xargs sudo apt-get install -y
+   [[ -r dependencies/apt.txt ]] && sed 's/#.*//' dependencies/apt.txt | xargs sudo apt-get install -y
    ```
    On MacOS:
    ```bash
