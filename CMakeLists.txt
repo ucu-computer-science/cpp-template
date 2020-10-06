@@ -8,6 +8,12 @@ project(adder
 set(CMAKE_C_STANDARD 11)
 set(CMAKE_CXX_STANDARD 17)
 
+# Options
+option(WARNINGS_AS_ERRORS   "Treat compiler warnings as errors."    ON)
+option(ENABLE_CONAN         "Use Conan as a package manager."       OFF)
+option(ENABLE_PVS_STUDIO    "Use PVS-Studio static code analyzer."  OFF) # Option for the local usage only. PVS-Studio isn't installed on GitHub machines.
+option(ENABLE_SANITIZERS    "Use sanitizers to detect errors."      OFF) # Option for the test builds. Do not use it in the production builds.
+
 # Project source compilation
 include_directories(inc)
 add_library(arithmetic STATIC
