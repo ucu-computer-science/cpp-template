@@ -9,7 +9,7 @@
  - **C++ compiler** - needs to support **C++17** standard
  - **CMake** 3.15+
  
-The rest prerequisites (such as development libraries) can be found in the [packages file](./apt_packages.txt) in the form of the apt package manager package names.
+Dependencies (such as development libraries) can be found in the [dependencies folder](./dependencies) in the form of the text files with package names for different package managers.
 
 ## Installing
 
@@ -17,10 +17,13 @@ The rest prerequisites (such as development libraries) can be found in the [pack
     ```bash
     git clone git@github.com:chernetskyi/cpp-template.git
     ```
-2. Install required packages. On Ubuntu:
+2. Install required packages.
+   
+   On Ubuntu:
    ```bash
-   [[ -r apt_packages.txt ]] && sed 's/\r$//' apt_packages.txt | sed 's/#.*//' | xargs sudo apt-get install -y
+   [[ -r dependencies/apt.txt ]] && sed 's/#.*//' dependencies/apt.txt| xargs sudo apt-get install -y
    ```
+   Use Conan on Windows.
 3. Build.
     ```bash
     cmake -Bbuild
