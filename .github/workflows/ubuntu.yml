@@ -8,15 +8,6 @@ jobs:
   build:
     runs-on: ubuntu-20.04
 
-    strategy:
-      matrix:
-        cc: [gcc, clang]
-        include:
-          - cc: gcc
-            cxx: g++
-          - cc: clang
-            cxx: clang++
-
     steps:
     - uses: actions/checkout@v2
 
@@ -25,7 +16,7 @@ jobs:
         [[ -r dependencies/apt.txt ]] && sed 's/#.*//' dependencies/apt.txt | xargs sudo apt-get install -y
 
     - name: Configure
-      run: CC=${{ matrix.cc }} CXX=${{ matrix.cxx }} cmake -DENABLE_CONAN=OFF -Bbuild
+      run: cmake -DENABLE_CONAN=OFF -Bbuild
 
     - name: Build
       run: cmake --build build
