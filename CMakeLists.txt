@@ -2,7 +2,7 @@ cmake_minimum_required(VERSION 3.15)
 project(adder
         VERSION 1.0.0
         DESCRIPTION "Add two numbers"
-        HOMEPAGE_URL "https://github.com/chernetskyi/cpp-template"
+        HOMEPAGE_URL "https://github.com/ucu-computer-systems/cpp-template"
         LANGUAGES C CXX)
 
 set(CMAKE_C_STANDARD 11)

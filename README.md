@@ -25,7 +25,7 @@ Dependencies (such as development libraries) can be found in the [dependencies f
 
 1. Clone the project.
     ```bash
-    git clone git@github.com:chernetskyi/cpp-template.git
+    git clone git@github.com:ucu-computer-systems/cpp-template.git
     ```
 2. Install required packages.
 
