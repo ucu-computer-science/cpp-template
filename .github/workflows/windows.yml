@@ -14,13 +14,11 @@ jobs:
       - name: Install Conan
         shell: bash
         run: |
-          if grep ENABLE_CONAN CMakeLists.txt | grep -w ON &>/dev/null ; then
-            pip install conan
-            conan remote add bincrafters https://api.bintray.com/conan/bincrafters/public-conan
-          fi
+          pip install conan
+          conan remote add bincrafters https://api.bintray.com/conan/bincrafters/public-conan
 
       - name: Configure
-        run: cmake -DBOOST_ROOT="$env:BOOST_ROOT_1_72_0" -DBOOST_INCLUDEDIR="$env:BOOST_ROOT_1_72_0"\boost\include -DBOOST_LIBRARYDIR="$env:BOOST_ROOT_1_72_0"\lib -Bbuild
+        run: cmake -DENABLE_CONAN=ON -Bbuild
 
       - name: Build
-        run: cmake -DBOOST_ROOT="$env:BOOST_ROOT_1_72_0" -DBOOST_INCLUDEDIR="$env:BOOST_ROOT_1_72_0"\boost\include -DBOOST_LIBRARYDIR="$env:BOOST_ROOT_1_72_0"\lib --build build
+        run: cmake --build build
